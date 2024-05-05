@@ -16,6 +16,11 @@ function App() {
     (letter) => !wordToGuess.includes(letter)
   );
 
+  const isLoser = incorrectLetters.length >= 6;
+  const isWinner = wordToGuess
+    .split("")
+    .every((letter) => guessedLetters.includes(letter));
+
   const addGuessedLetter = useCallback(
     (letter: string) => {
       if (guessedLetters.includes(letter)) return;
@@ -48,7 +53,10 @@ function App() {
         margin: "0 auto",
         alignItems: "center",
       }}>
-      <div style={{ fontSize: "2rem", textAlign: "center" }}>Loos win</div>
+      <div style={{ fontSize: "2rem", textAlign: "center" }}>
+        {isWinner && "Winner! - Refresh to run again."}
+        {isLoser && "Nice Try! - Refresh to run again."}
+      </div>
       <div>
         <HangManDrawing numberOfGuesses={incorrectLetters.length} />
         <HangManWord
