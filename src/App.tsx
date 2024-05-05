@@ -23,12 +23,15 @@ function App() {
         alignItems: "center",
       }}>
       <div style={{ fontSize: "2rem", textAlign: "center" }}>Loos win</div>
-      <div><HangManDrawing />
+      <div>
+        <HangManDrawing />
         <HangManWord />
-        <Keyboard/>
 
+        <div style={{ alignSelf: "stretch" }}>
+          <Keyboard />
+        </div>
       </div>
-      </div>
+    </div>
   );
 }
 
