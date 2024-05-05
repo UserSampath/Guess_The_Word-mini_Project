@@ -25,8 +25,6 @@ function App() {
     [guessedLetters]
   );
 
-
-
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       const key = e.key;
@@ -59,7 +57,13 @@ function App() {
         />
 
         <div style={{ alignSelf: "stretch" }}>
-          <Keyboard />
+          <Keyboard
+            addGuessedLetter={addGuessedLetter}
+            inactiveLetters={incorrectLetters}
+            activeLetters={guessedLetters.filter((letter) =>
+              wordToGuess.includes(letter)
+            )}
+          />
         </div>
       </div>
     </div>
