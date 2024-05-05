@@ -57,8 +57,6 @@ const LEFT_ARM = (
   />
 );
 
-
-
 const RIGHT_LEG = (
   <div
     style={{
@@ -73,7 +71,6 @@ const RIGHT_LEG = (
     }}
   />
 );
-
 
 const LEFT_LEG = (
   <div
