@@ -23,11 +23,11 @@ function App() {
 
   const addGuessedLetter = useCallback(
     (letter: string) => {
-      if (guessedLetters.includes(letter)) return;
+      if (guessedLetters.includes(letter)||isLoser||isWinner) return;
 
       setGuessedLetters((currentLetters) => [...currentLetters, letter]);
     },
-    [guessedLetters]
+    [guessedLetters,isWinner,isLoser]
   );
 
   useEffect(() => {
@@ -66,6 +66,7 @@ function App() {
 
         <div style={{ alignSelf: "stretch" }}>
           <Keyboard
+            disabled={isWinner || isLoser}
             addGuessedLetter={addGuessedLetter}
             inactiveLetters={incorrectLetters}
             activeLetters={guessedLetters.filter((letter) =>
