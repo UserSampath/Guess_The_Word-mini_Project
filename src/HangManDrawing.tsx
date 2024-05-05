@@ -19,7 +19,7 @@ const BODY = (
     style={{
       width: "10px",
       height: "100px",
-      background:"black",
+      background: "black",
       position: "absolute",
       top: "120px",
       right: "0",
@@ -37,7 +37,7 @@ const RIGHT_ARM = (
       top: "150px",
       right: "-100px",
       rotate: "-30deg",
-      transformOrigin:"left bottom"
+      transformOrigin: "left bottom",
     }}
   />
 );
@@ -86,15 +86,16 @@ const LEFT_LEG = (
     }}
   />
 );
-const HangManDrawing = () => {
+
+const BODY_PARTS=[HEAD,BODY,RIGHT_ARM,LEFT_ARM,RIGHT_LEG,LEFT_LEG]
+
+type HangManDrawingProps = {
+  numberOfGuesses: number;
+};
+const HangManDrawing = ({ numberOfGuesses }: HangManDrawingProps) => {
   return (
     <div style={{ position: "relative" }}>
-      {HEAD}
-      {BODY}
-      {RIGHT_ARM}
-      {LEFT_ARM}
-      {RIGHT_LEG}
-      {LEFT_LEG}
+{BODY_PARTS.slice(0,numberOfGuesses)}
       <div
         style={{
           height: "50px",

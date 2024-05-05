@@ -4,14 +4,15 @@ import HangManDrawing from "./HangManDrawing";
 import HangManWord from "./HangManWord";
 import Keyboard from "./Keyboard";
 
-const words = ["sample", "wsfe", "fwefwf", "sdfsdfsf"];
+const words = ["asd", "wsfe", "dfg", "acdf"];
 
 function App() {
-  const [wordToGuss, setWordToGuss] = useState(() => {
+  const [wordToGuess, setWordToGuess] = useState(() => {
     return words[Math.floor(Math.random() * words.length)];
   });
 
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+  const incorrectLetters=guessedLetters.filter(letter=>!wordToGuess.includes(letter))
   return (
     <div
       style={{
@@ -24,8 +25,8 @@ function App() {
       }}>
       <div style={{ fontSize: "2rem", textAlign: "center" }}>Loos win</div>
       <div>
-        <HangManDrawing />
-        <HangManWord />
+        <HangManDrawing numberOfGuesses={incorrectLetters.length} />
+        <HangManWord guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
 
         <div style={{ alignSelf: "stretch" }}>
           <Keyboard />
