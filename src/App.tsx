@@ -62,6 +62,7 @@ function App() {
         <HangManWord
           guessedLetters={guessedLetters}
           wordToGuess={wordToGuess}
+          reveal={isLoser}
         />
 
         <div style={{ alignSelf: "stretch" }}>
