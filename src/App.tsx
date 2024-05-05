@@ -4,7 +4,7 @@ import HangManDrawing from "./HangManDrawing";
 import HangManWord from "./HangManWord";
 import Keyboard from "./Keyboard";
 
-const words = ["asd", "wsfe", "dfg", "acdf"];
+const words = ["jone", "ball", "bat", "sasa"];
 
 function App() {
   const [wordToGuess, setWordToGuess] = useState(() => {
@@ -65,7 +65,8 @@ function App() {
           reveal={isLoser}
         />
 
-        <div style={{ alignSelf: "stretch" }}>
+        
+      </div><div style={{ alignSelf: "stretch" }}>
           <Keyboard
             disabled={isWinner || isLoser}
             addGuessedLetter={addGuessedLetter}
@@ -75,7 +76,6 @@ function App() {
             )}
           />
         </div>
-      </div>
     </div>
   );
 }

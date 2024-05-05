@@ -48,6 +48,7 @@ const Keyboard = ({
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit,minmax(75px,1fr))",
         gap: ".5rem",
+        
       }}>
       {KEYS.map((key) => {
         const isActive = activeLetters.includes(key);
